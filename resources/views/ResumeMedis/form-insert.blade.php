@@ -65,36 +65,60 @@
                             <label class="form-check-label" for="meninggal">Meninggal</label>
                         </div>
                         <br>
-                        <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="kSaatPulang" id="rdb_dirujuk" value="">
-                            <label class="form-check-label" for="dirujuk">Dirujuk ke</label>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group row">
+                                <div class="col-sm-4">
+                                    <div class="form-check" style="margin-top: 23px;">
+                                        <input class="form-check-input" type="radio" name="kSaatPulang" id="rdb_dirujuk" value="">
+                                        <label class="form-check-label" for="dirujuk">Dirujuk ke</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-8">
+                                    <input style="margin-top: 15px;" type="text" class="form-control" name="kDirujuk" id="txt_dirujuk">
+                                </div>
+                            </div>
                         </div>
-                        <input type="text" class="form-control-inline" name="kDirujuk" id="txt_dirujuk">
-                        <label for="kondisi_saat_pulang">Alasan</label>
-                        <input type="text" class="form-control-inline" name="alasan" id="txt_alasan">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label style="margin-top: 15px;" class="col-md-1 col-form-label" for="kondisi_saat_pulang">Alasan</label>
+                                <div class="col-md-11">
+                                    <textarea class="form-control" name="alasan" id="tarea_alasan"></textarea>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="pengobatan_lanjutan">Pengobatan lanjutan</label>
                         <div class="row">
-                            <div class="col-1">
-                                <div class="form-group form-check" style="margin-top:5px;">
-                                    <input type="checkbox" class="form-check-input" id="chck_poliklinik">
-                                    <label class="form-check-label" for="poliklinik">Poliklinik</label>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="diagnosa_akhir" id="txt_dAkhir">
+                            <div class="col-4">
+                                <div class="form-group row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group form-check" style="margin-top:5px;">
+                                            <input type="checkbox" class="form-check-input" id="chck_poliklinik">
+                                            <label class="form-check-label" for="poliklinik">Poliklinik</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="diagnosa_akhir" id="txt_dAkhir">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="tgl_kontrol">Tanggal Kontrol</label>
-                        <input type="date" class="form-control" name="tgl_kontrol" id="date_tglKontrol">
+                        <div class="row">
+                            <div class="col-3">
+                                <input type="date" class="form-control" name="tgl_kontrol" id="date_tglKontrol">
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <button type="button" class="btn btn-success btn-block">Simpan</button>
+                    <div class="form-group" style="text-align: center">
+                        <button type="button" class="btn btn-success">Simpan</button>
                     </div>
                 </form>
             </div>
