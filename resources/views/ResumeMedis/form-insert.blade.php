@@ -12,10 +12,11 @@
         <h2 style="margin: 25px auto;">Form Resume Medis</h2>
         <div class="row">
             <div class="col">
-                <form action="">
+                <form method="post" action="{{url('/resume-medis/insert')}}">
+                    @csrf
                     <div class="form-group">
-                        <label for="diagnosa_awal">Diagnosa Masuk</label>
-                        <input type="text" class="form-control" name="diagnosa_awal" id="txt_dAwal">
+                        <label for="diagnosa_masuk">Diagnosa Masuk</label>
+                        <input type="text" class="form-control" name="diagnosa_masuk" id="txt_dMasuk">
                     </div>
                     <div class="form-group">
                         <label for="anamnesis">Anamnesis</label>
@@ -49,19 +50,19 @@
                         <label for="kondisi_saat_pulang">Kondisi Saat Pulang</label>
                         <br>
                         <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="kSaatPulang" id="rdb_sembuh" value="">
+                            <input class="form-check-input" type="radio" name="kondisi_saat_pulang" id="rdb_sembuh" value="sembuh">
                             <label class="form-check-label" for="sembuh">Sembuh</label>
                         </div>
                         <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="kSaatPulang" id="rdb_perbaikan" value="">
+                            <input class="form-check-input" type="radio" name="kondisi_saat_pulang" id="rdb_perbaikan" value="perbaikan">
                             <label class="form-check-label" for="perbaikan">Perbaikan</label>
                         </div>
                         <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="kSaatPulang" id="rdb_paPermintaanSendiri" value="">
+                            <input class="form-check-input" type="radio" name="kondisi_saat_pulang" id="rdb_paPermintaanSendiri" value="pulang atas permintaan sendiri">
                             <label class="form-check-label" for="pulang_atas_permintaan_sendiri">Pulang Atas Permintaan Sendiri</label>
                         </div>
                         <div class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="kSaatPulang" id="rdb_meninggal" value="">
+                            <input class="form-check-input" type="radio" name="kondisi_saat_pulang" id="rdb_meninggal" value="meninggal">
                             <label class="form-check-label" for="meninggal">Meninggal</label>
                         </div>
                         <br>
@@ -71,12 +72,12 @@
                             <div class="form-group row">
                                 <div class="col-sm-4">
                                     <div class="form-check" style="margin-top: 23px;">
-                                        <input class="form-check-input" type="radio" name="kSaatPulang" id="rdb_dirujuk" value="">
+                                        <input class="form-check-input" type="radio" name="kondisi_saat_pulang" id="rdb_dirujuk" value="dirujuk">
                                         <label class="form-check-label" for="dirujuk">Dirujuk ke</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-8">
-                                    <input style="margin-top: 15px;" type="text" class="form-control" name="kDirujuk" id="txt_dirujuk">
+                                    <input style="margin-top: 15px;" type="text" class="form-control" name="ket_dirujuk" id="txt_dirujuk">
                                 </div>
                             </div>
                         </div>
@@ -96,13 +97,13 @@
                                 <div class="form-group row">
                                     <div class="col-sm-4">
                                         <div class="form-group form-check" style="margin-top:5px;">
-                                            <input type="checkbox" class="form-check-input" id="chck_poliklinik">
+                                            <input type="checkbox" name="poliklinik" class="form-check-input" id="chck_poliklinik">
                                             <label class="form-check-label" for="poliklinik">Poliklinik</label>
                                         </div>
                                     </div>
                                     <div class="col-sm-8">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" name="diagnosa_akhir" id="txt_dAkhir">
+                                            <input type="text" class="form-control" name="pengobatan_lanjutan" id="txt_pLanjutan">
                                         </div>
                                     </div>
                                 </div>
@@ -118,7 +119,7 @@
                         </div>
                     </div>
                     <div class="form-group" style="text-align: center">
-                        <button type="button" class="btn btn-success">Simpan</button>
+                        <button type="submit" class="btn btn-success">Simpan</button>
                     </div>
                 </form>
             </div>
