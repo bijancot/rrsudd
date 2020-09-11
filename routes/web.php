@@ -20,3 +20,6 @@ Route::get('/', function () {
 Route::get('/resume-medis/insert', 'ResumeMedisController@FormInsert');
 Route::get('/login', 'LoginController@index');
 Route::get('/pasien', 'PasienController@index');
+
+
+Route::post('/resume-medis/insert', 'ResumeMedisController@Insert');
