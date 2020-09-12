@@ -63,22 +63,41 @@
                                 </td>
                                 <td>
                                     <a href="{{action('ResumeMedisController@FormEdit', $resume->id)}}"  class="btn btn-warning">Edit</a>
-                                    <button type="button" class="btn btn-danger">Hapus</button>
+                                    <button onclick="hapus()" type="button" class="btn btn-danger">Hapus</button>
+                                    <form id="form-delete" method="post" action="{{action('ResumeMedisController@Delete')}}">
+                                        @csrf
+                                        <input type="hidden" value="{{$resume->id}}" name="id">
+                                    </form>
                                 </td>
                             </tr>
-                        @endforeach  
-                    </tbody>
-                </table>
+                            @endforeach  
+                        </tbody>
+                    </table>
             </div>
         </div>
     </div>
 </div>
 
-
 <script type="text/javascript">
     $(document).ready(function() {
-    $('#example').DataTable();
-} );
+        $('#example').DataTable();
+    });
+    function hapus(){
+        swal({
+            title: "Anda yakin hayoo ?",
+            text: "Apakah anda yakin menhapus data satu ini!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    $("#form-delete").submit();
+                } else {
+                    
+                }
+            })
+    }
 </script>
 
 @endsection

@@ -90,4 +90,10 @@ class ResumeMedisController extends Controller
             return redirect('/pasien');
         }
     }
+    public function Delete(Request $req){
+        $resume = ResumeMedis::find($req->id);
+        $resume->status = "2";
+        $resume->save();
+        return redirect('/pasien');
+    }
 }
