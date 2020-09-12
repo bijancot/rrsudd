@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/resume-medis/insert', 'ResumeMedisController@FormInsert');
+Route::get('/resume-medis/edit/{id}', 'ResumeMedisController@FormEdit');
 Route::get('/login', 'LoginController@index');
 Route::get('/pasien', 'PasienController@index');
 

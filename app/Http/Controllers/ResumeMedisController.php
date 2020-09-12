@@ -42,4 +42,13 @@ class ResumeMedisController extends Controller
         
         return redirect('/pasien');
     }
+    
+    public function FormEdit($id){
+        $resume =ResumeMedis::find($id);
+        return view('/ResumeMedis/form-update', compact('resume'));
+    }
+
+    public function Update(){
+
+    }
 }

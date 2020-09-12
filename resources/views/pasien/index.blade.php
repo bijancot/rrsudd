@@ -62,7 +62,7 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-warning">Edit</button>
+                                    <a href="{{action('ResumeMedisController@FormEdit', $resume->id)}}"  class="btn btn-warning">Edit</a>
                                     <button type="button" class="btn btn-danger">Hapus</button>
                                 </td>
                             </tr>
