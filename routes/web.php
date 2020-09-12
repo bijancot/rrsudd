@@ -24,3 +24,4 @@ Route::get('/pasien', 'PasienController@index');
 
 
 Route::post('/resume-medis/insert', 'ResumeMedisController@Insert');
+Route::post('/resume-medis/edit/{id}', 'ResumeMedisController@Update');
