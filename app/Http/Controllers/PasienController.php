@@ -9,7 +9,7 @@ class PasienController extends Controller
 {
     public function index()
     {
-        $resumes=ResumeMedis::all();
+        $resumes=ResumeMedis::where("status", "0")->get();
         return view('pasien.index', compact('resumes'));
     }
 }
