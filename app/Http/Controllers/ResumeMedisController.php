@@ -32,7 +32,7 @@ class ResumeMedisController extends Controller
         
         if($req->get('kondisi_saat_pulang') == "dirujuk"){
             $resume->kondisi_saat_pulang = [
-                'ket_dirujuk' => $req->get('kondisi_saat_pulang'),
+                'ket_dirujuk' => $req->get('ket_dirujuk'),
                 'alasan' => $req->get('alasan')
             ];
         }else{
@@ -40,6 +40,6 @@ class ResumeMedisController extends Controller
         }
         $resume->save();
         
-        return redirect('/resume-medis/insert');
+        return redirect('/pasien');
     }
 }

@@ -8,9 +8,12 @@
     <div class="row">
         <div class="col-10">
             <h1 class="mt-3">Daftar Pasien</h1>
-
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="{{url('/resume-medis/insert')}}" style="margin: 25px auto;float: right;" class="btn btn-success">Tambah</a>
+                </div>
+            </div>
             <div class="table-responsive">
-
                 <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                     <thead>
                         <tr>
@@ -48,9 +51,11 @@
                                 <td>{{$resume->tgl_kontrol}}</td>
                                 <td>
                                     @if (!empty($resume->kondisi_saat_pulang['ket_dirujuk']))
-                                        {{$resume->kondisi_saat_pulang['ket_dirujuk']." Alasan: "}}
+                                        {{"Dirujuk ke ".$resume->kondisi_saat_pulang['ket_dirujuk']." Alasan: "}}
                                         @if ($resume->kondisi_saat_pulang['alasan'] == null)
                                             -
+                                        @else
+                                        {{$resume->kondisi_saat_pulang['alasan']}}
                                         @endif
                                     @else
                                         {{$resume->kondisi_saat_pulang}}
@@ -61,44 +66,9 @@
                                     <button type="button" class="btn btn-danger">Hapus</button>
                                 </td>
                             </tr>
-                        @endforeach
-                        {{-- <tr>
-                            <td>Tiger</td>
-                            <td>Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
-                            <td>5421</td>
-                            <td>t.nixon@datatables.net</td>
-                            <td>t.nixon@datatables.net</td>
-                            <td>t.nixon@datatables.net</td>
-                            <td>
-                                <button type="button" class="btn btn-warning">Edit</button>
-                                <button type="button" class="btn btn-danger">Hapus</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Garrett</td>
-                            <td>Winters</td>
-                            <td>Accountant</td>
-                            <td>Tokyo</td>
-                            <td>63</td>
-                            <td>2011/07/25</td>
-                            <td>$170,750</td>
-                            <td>8422</td>
-                            <td>g.winters@datatables.net</td>
-                            <td>g.winters@datatables.net</td>
-                            <td>g.winters@datatables.net</td>
-                            <td>
-                                <button type="button" class="btn btn-warning">Edit</button>
-                                <button type="button" class="btn btn-danger">Hapus</button>
-                            </td>
-                        </tr> --}}
+                        @endforeach  
                     </tbody>
                 </table>
-
             </div>
         </div>
     </div>
