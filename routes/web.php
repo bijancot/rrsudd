@@ -17,14 +17,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/resume-medis/insert', 'ResumeMedisController@FormInsert');
-Route::get('/resume-medis/edit/{id}', 'ResumeMedisController@FormEdit');
-Route::get('/pasien', 'PasienController@index');
+Route::group(['middleware' => ['auth', 'checkRole:2,3']], function () {
+    Route::get('/pasien', 'PasienController@index');
+    Route::get('/resume-medis/insert', 'ResumeMedisController@FormInsert');
+    Route::get('/resume-medis/edit/{id}', 'ResumeMedisController@FormEdit');
 
+    Route::post('/resume-medis/insert', 'ResumeMedisController@Insert');
+    Route::post('/resume-medis/edit/{id}', 'ResumeMedisController@Update');
+    Route::post('/resume-medis/delete', 'ResumeMedisController@Delete');
+});
 
-Route::post('/resume-medis/insert', 'ResumeMedisController@Insert');
-Route::post('/resume-medis/edit/{id}', 'ResumeMedisController@Update');
-Route::post('/resume-medis/delete', 'ResumeMedisController@Delete');
+Route::group(['middleware' => ['auth', 'checkRole:1,2,3']], function () {
+    Route::get('/pasien', 'PasienController@index');
+    Route::get('/logging', 'Logging@index');
+});
+
 
 Auth::routes();
 

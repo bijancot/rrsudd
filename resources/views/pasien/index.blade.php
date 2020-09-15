@@ -13,6 +13,11 @@
                     <a href="{{url('/resume-medis/insert')}}" style="margin: 25px auto;float: right;" class="btn btn-success">Tambah</a>
                 </div>
             </div>
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
             <div class="table-responsive">
                 <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                     <thead>

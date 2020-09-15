@@ -1,4 +1,4 @@
-@extends('layouts.main_login')
+@extends('layout.main_login')
 
 @section('title', 'Login Poli Jantung')
 
@@ -46,7 +46,7 @@
                                     <strong>{{ $errors->first('password') }}</strong>
                                 </span>
                             @endif
-<span class="focus-input100"></span>
+                        <span class="focus-input100"></span>
                         </div>
                     </div>
 

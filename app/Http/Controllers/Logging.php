@@ -7,5 +7,8 @@ use App\Http\Controllers\Controller;
 
 class Logging extends Controller
 {
-    //
+    public function index()
+    {
+        echo "Hello world";
+    }
 }
