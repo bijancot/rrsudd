@@ -28,6 +28,6 @@ class CreatePasienCollection extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pasien_collection');
+        // Schema::dropIfExists('pasien_collection');
     }
 }

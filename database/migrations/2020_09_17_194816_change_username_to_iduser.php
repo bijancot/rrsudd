@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class ChangeUsernameToIduser extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->unique('username');
-            $table->string('nama');
-            $table->string('password');
-            $table->string('stat');
-            $table->rememberToken();
-            $table->timestamps();
+        Schema::table('loggings', function (Blueprint $collection) {
+            $collection->unique('id_user');
         });
     }
 
@@ -30,6 +25,8 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        // Schema::dropIfExists('users');
+        Schema::table('iduser', function (Blueprint $table) {
+            //
+        });
     }
 }
