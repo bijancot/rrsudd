@@ -29,7 +29,7 @@ Route::group(['middleware' => ['auth', 'checkRole:2,3']], function () {
 
 Route::group(['middleware' => ['auth', 'checkRole:1,2,3']], function () {
     Route::get('/pasien', 'PasienController@index');
-    Route::get('/logging', 'Logging@index');
+    Route::get('/logging', 'LoggingController@index');
 });
 
 
