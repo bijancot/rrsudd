@@ -8,6 +8,13 @@ use App\Logging;
 
 class LoggingController extends Controller
 {
+
+    public function index()
+    {
+        $loggings = Logging::all();
+        return view('logging', compact('loggings'));
+    }
+
     public function toLogging($id_user = null, $metode = null, $keterangan = null)
     {
         // store log 
