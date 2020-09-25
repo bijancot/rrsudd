@@ -127,4 +127,8 @@ class ResumeMedisController extends Controller
         $logging->toLogging($getIDuser, 'delete', "resume-medis '$req->id'");
         return redirect('/pasien');
     }
+
+    public function RisetJsonForm(){
+        return view('form-dynamic');
+    }
 }
