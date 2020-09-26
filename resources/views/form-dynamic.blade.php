@@ -20,7 +20,8 @@
             <h1>Data Pasien</h1>
         </div>
     </div>
-    <form action="">
+    <form method="post" action="{{url('/risetjson')}}">
+        @csrf
         <div class="row">
             <div class="col-6 column1">
             </div>

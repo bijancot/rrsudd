@@ -324,7 +324,6 @@
                },
                {
                   "key" : "jam",
-                  "type" : "time",
                   "htmlClass" : "col-sm-2"
                }
             ]

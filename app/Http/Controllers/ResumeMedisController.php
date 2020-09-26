@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\ResumeMedis;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LoggingController;
+use App\DataJson;
 
 class ResumeMedisController extends Controller
 {
@@ -130,5 +131,9 @@ class ResumeMedisController extends Controller
 
     public function RisetJsonForm(){
         return view('form-dynamic');
+    }
+
+    public function InsertJsonForm(Request $req){
+        DataJson::create($req->all());
     }
 }
