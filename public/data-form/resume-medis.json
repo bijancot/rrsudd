@@ -1,0 +1,358 @@
+{
+   "column1" : {
+      "schema": {
+         "no_pendaftaran": {
+            "id" : "no_pendaftaran",
+            "title": "No Pendaftaran",
+            "type" : "string",
+            "htmlClass": "col-sm"
+         },
+         
+         "no_rekam_medis": {
+            "id" : "no_rekam_medis",
+            "title": "No Rekam Medis",
+            "type": "string",
+            "htmlClass": "col-sm"
+         },
+         
+         "nama": {
+            "id" : "nama",
+            "title": "Nama",
+            "type": "string"
+         },
+         
+         "agama": {
+            "id" : "agama",
+            "title": "Agama Pasien",
+            "type": "string",
+            "enum" : ["Islam","Kristen","Katolik","Hindu","Buda"]
+         },
+         
+         "tgl_lahir": {
+            "id" : "tgl_lahir",
+            "title": "Tanggal Lahir",
+            "type": "string"
+         },
+         
+         "umur": {
+            "id" : "umur",
+            "title": "Umur Pasien",
+            "type": "string"
+         },
+         "jenkel": {
+            "id" : "jenkel",
+            "title": "Jenis Kelamin",
+            "type": "string",
+            "enum" : ["Laki - Laki", "Perempuan"]
+         },
+         "alamat": {
+            "id" : "alamat",
+            "title": "Alamat",
+            "type": "string"
+         },
+         "desa": {
+            "id" : "desa",
+            "title": "Desa",
+            "type": "string",
+            "enum" : ["Gadang", "Jumput"]
+         },
+         "kecamatan": {
+            "id" : "kecamatan",
+            "title": "Kecamatan",
+            "type": "string",
+            "enum" : ["Sukun", "Kedung Kandang"]
+         },
+         "kota_kabupaten": {
+            "id" : "kota_kabupaten",
+            "title": "Kota/Kabupaten",
+            "type": "string",
+            "enum" : ["Kota Malang", "Kota Kediri"]
+         },
+         "status": {
+            "id" : "status",
+            "title": "Status",
+            "type": "string"
+         },
+         "tanggung_jawab": {
+            "id" : "tanggung_jawab",
+            "title": "Tanggung Jawab",
+            "type": "string"
+         },
+         "nama_pj": {
+            "id" : "nama_pj",
+            "title": "Nama Penanggung Jawab",
+            "type": "string"
+         }
+      },
+      "form": [
+         {
+            "type" : "section",
+            "id"   : "section1",
+            "title": "Nomor Pendaftaran",
+            "htmlClass": "row",
+            "items": [
+               {
+                  "key" : "no_pendaftaran",
+                  "htmlClass" : "col-sm"
+               },
+               {
+                  "key" : "no_rekam_medis",
+                  "htmlClass" : "col-sm"
+               }
+            ]
+         },
+         {
+            "type" : "section",
+            "id"   : "section2",
+            "title": "Nama,Agama",
+            "htmlClass": "row",
+            "items": [
+               {
+                  "key" : "nama",
+                  "htmlClass" : "col-sm-9"
+               },
+               {
+                  "key" : "agama",
+                  "htmlClass" : "col-sm-3"
+               }
+            ]
+         },
+         {
+            "type" : "section",
+            "id"   : "section3",
+            "title": "TglLhir,Umur,Jenkel",
+            "htmlClass": "row",
+            "items": [
+               {
+                     "key" : "tgl_lahir",
+                     "type" : "date",
+                     "htmlClass" : "col-sm-6"
+               },
+               {
+                     "key" : "umur",
+                     "htmlClass" : "col-sm-3"
+               },
+               {
+                     "key" : "jenkel",
+                     "htmlClass" : "col-sm-3"
+               }
+            ]
+         },
+         {
+            "type" : "section",
+            "id"   : "section4",
+            "title": "Alamat",
+            "htmlClass" : "row",
+            "items": [
+               {
+                  "key" : "alamat",
+                  "htmlClass" : "col-sm"
+               }
+            ]
+         },
+         {
+            "type" : "section",
+            "id"   : "section5",
+            "title": "Desa,Kecamatan,Kota/Kab",
+            "htmlClass": "row",
+            "items": [
+               {
+                  "key" : "desa",
+                  "htmlClass" : "col-sm"
+               },
+               {
+                  "key" : "kecamatan",
+                  "htmlClass" : "col-sm"
+               },
+               {
+                  "key" : "kota_kabupaten",
+                  "htmlClass" : "col-sm"
+               }
+            ]
+         },
+         {
+            "type" : "section",
+            "id"   : "section6",
+            "title": "Status,Tangung_Jawab,NamaPenanggungJawab",
+            "htmlClass" : "row",
+            "items": [
+               {
+                  "key" : "status",
+                  "htmlClass" : "col-sm-4"
+               },
+               {
+                  "key" : "tanggung_jawab",
+                  "htmlClass" : "col-sm-3"
+               },
+               {
+                  "key" : "nama_pj",
+                  "htmlClass" : "col-sm-5"
+               }
+            ]
+         }
+      ]
+   },
+   "column2" : {
+      "schema" : {
+         "alamat_pj" : {
+            "id" : "alamat_pj",
+            "title" : "Alamat Penanggung Jawab",
+            "type" : "string"
+      },
+      "desa_pj": {
+            "id" : "desa_pj",
+            "title": "Desa",
+            "type": "string",
+            "enum" : ["Gadang", "Jumput"]
+      },
+      "kecamatan_pj": {
+            "id" : "kecamatan_pj",
+            "title": "Kecamatan",
+            "type": "string",
+            "enum" : ["Sukun", "Kedung Kandang"]
+      },
+      "kota_kabupaten_pj": {
+            "id" : "kota_kabupaten_pj",
+            "title": "Kota/Kabupaten",
+            "type": "string",
+            "enum" : ["Kota Malang", "Kota Kediri"]
+      },
+      "cara_masuk_rs" : {
+            "id" : "cara_masuk_rs",
+            "title" : "Cara Masuk RS",
+            "type" : "string"
+      },
+      "cara_penerimaan" : {
+            "id" : "cara_penerimaan",
+            "title" : "Cara Penerimaan",
+            "type" : "string"
+      },
+      "kelas_pelayanan": {
+            "id" : "kelas_pelayanan",
+            "title": "Kelas Pelayanan",
+            "type": "string",
+            "enum" : ["Kelas I", "Kelas II", "Kelas III"]
+      },
+      "penjamin" : {
+            "id" : "penjamin",
+            "title" : "Penjamin",
+            "type" : "string"
+      },
+      "tgl_masuk" : {
+            "id" : "tgl_masuk",
+            "title" : "Tanggal Masuk",
+            "type" : "string"
+      },
+      "jam" : {
+            "id" : "jam",
+            "title" : "Jam",
+            "type" : "string"
+      },
+      "input_hidden" : {
+            "id" : "input_hidden",
+            "title" : "Input Hidden",
+            "type" : "string"
+      }
+   },
+   "form" : [
+      {
+            "type" : "section",
+            "id" : "section7",
+            "title" : "AlamatPJ",
+            "htmlClass" : "row",
+            "items" : [
+               {
+                  "key" : "alamat_pj",
+                  "htmlClass" : "col-sm"
+               }
+            ]
+      },
+      {
+            "type" : "section",
+            "id" : "section8",
+            "title" : "DesaPJ,KecamatanPJ,Kota/KabPJ",
+            "htmlClass" : "row",
+            "items" : [
+               {
+                  "key" : "desa_pj",
+                  "htmlClass" : "col-sm"
+               },
+               {
+                  "key" : "kecamatan_pj",
+                  "htmlClass" : "col-sm"
+               },
+               {
+                  "key" : "kota_kabupaten_pj",
+                  "htmlClass" : "col-sm"
+               }
+            ]
+      },
+      {
+            "type" : "section",
+            "id" : "section9",
+            "title" : "CaraMasukRS,CaraPenerimaan",
+            "htmlClass" : "row",
+            "items" : [
+               {
+                  "key" : "cara_masuk_rs",
+                  "htmlClass" : "col-sm"
+               },
+               {
+                  "key" : "cara_penerimaan",
+                  "htmlClass" : "col-sm"
+               }
+            ]
+      },
+      {
+            "type" : "section",
+            "id" : "section10",
+            "title" : "KelasPelayan,Penjamin,TglMasuk,Jam",
+            "htmlClass" : "row",
+            "items" : [
+               {
+                  "key" : "kelas_pelayanan",
+                  "htmlClass" : "col-sm-3"
+               },
+               {
+                  "key" : "penjamin",
+                  "htmlClass" : "col-sm-3"
+               },
+               {
+                  "key" : "tgl_masuk",
+                  "type" : "date",
+                  "htmlClass" : "col-sm-4"
+               },
+               {
+                  "key" : "jam",
+                  "type" : "time",
+                  "htmlClass" : "col-sm-2"
+               }
+            ]
+      },
+      {
+            "type" : "section",
+            "id" : "section11",
+            "title" : "InputHidden",
+            "items" : [
+               {
+                  "key" : "input_hidden",
+                  "type" : "hidden"
+               }
+            ]
+      },
+      {
+            "type" : "section",
+            "id" : "section12",
+            "title" : "ButtonSumbit",
+            "items" : [
+               {
+                  "id" : "btn_submit",
+                  "type" : "submit",
+                  "title" : "Diagnosa",
+                  "htmlClass" : "form-control"
+               }
+            ]
+      }
+   ]
+   }
+}
