@@ -2,84 +2,70 @@
    "column1" : {
       "schema": {
          "no_pendaftaran": {
-            "id" : "no_pendaftaran",
             "title": "No Pendaftaran",
             "type" : "string",
             "htmlClass": "col-sm"
          },
          
          "no_rekam_medis": {
-            "id" : "no_rekam_medis",
             "title": "No Rekam Medis",
             "type": "string",
             "htmlClass": "col-sm"
          },
          
          "nama": {
-            "id" : "nama",
             "title": "Nama",
             "type": "string"
          },
          
          "agama": {
-            "id" : "agama",
             "title": "Agama Pasien",
             "type": "string",
             "enum" : ["Islam","Kristen","Katolik","Hindu","Buda"]
          },
          
          "tgl_lahir": {
-            "id" : "tgl_lahir",
             "title": "Tanggal Lahir",
             "type": "string"
          },
          
          "umur": {
-            "id" : "umur",
             "title": "Umur Pasien",
             "type": "string"
          },
          "jenkel": {
-            "id" : "jenkel",
             "title": "Jenis Kelamin",
             "type": "string",
             "enum" : ["Laki - Laki", "Perempuan"]
          },
          "alamat": {
-            "id" : "alamat",
             "title": "Alamat",
             "type": "string"
          },
          "desa": {
-            "id" : "desa",
             "title": "Desa",
             "type": "string",
             "enum" : ["Gadang", "Jumput"]
          },
          "kecamatan": {
-            "id" : "kecamatan",
             "title": "Kecamatan",
             "type": "string",
             "enum" : ["Sukun", "Kedung Kandang"]
          },
          "kota_kabupaten": {
-            "id" : "kota_kabupaten",
             "title": "Kota/Kabupaten",
             "type": "string",
             "enum" : ["Kota Malang", "Kota Kediri"]
          },
          "status": {
-            "id" : "status",
             "title": "Status",
             "type": "string"
          },
          "tanggung_jawab": {
-            "id" : "tanggung_jawab",
             "title": "Tanggung Jawab",
             "type": "string"
          },
          "nama_pj": {
-            "id" : "nama_pj",
             "title": "Nama Penanggung Jawab",
             "type": "string"
          }
@@ -93,10 +79,12 @@
             "items": [
                {
                   "key" : "no_pendaftaran",
+                  "id" : "no_pendaftaran",
                   "htmlClass" : "col-sm"
                },
                {
                   "key" : "no_rekam_medis",
+                  "id" : "no_rekam_medis",
                   "htmlClass" : "col-sm"
                }
             ]
@@ -109,10 +97,12 @@
             "items": [
                {
                   "key" : "nama",
+                  "id" : "nama",
                   "htmlClass" : "col-sm-9"
                },
                {
                   "key" : "agama",
+                  "id" : "agama",
                   "htmlClass" : "col-sm-3"
                }
             ]
@@ -125,15 +115,18 @@
             "items": [
                {
                      "key" : "tgl_lahir",
+                     "id" : "tgl_lahir",
                      "type" : "date",
                      "htmlClass" : "col-sm-6"
                },
                {
                      "key" : "umur",
+                     "id" : "umur",
                      "htmlClass" : "col-sm-3"
                },
                {
                      "key" : "jenkel",
+                     "id" : "jenkel",
                      "htmlClass" : "col-sm-3"
                }
             ]
@@ -146,6 +139,7 @@
             "items": [
                {
                   "key" : "alamat",
+                  "id" : "alamat",
                   "htmlClass" : "col-sm"
                }
             ]
@@ -158,14 +152,17 @@
             "items": [
                {
                   "key" : "desa",
+                  "id" : "desa",
                   "htmlClass" : "col-sm"
                },
                {
                   "key" : "kecamatan",
+                  "id" : "kecamatan",
                   "htmlClass" : "col-sm"
                },
                {
                   "key" : "kota_kabupaten",
+                  "id" : "kota_kabupaten",
                   "htmlClass" : "col-sm"
                }
             ]
@@ -178,14 +175,17 @@
             "items": [
                {
                   "key" : "status",
+                  "id" : "status",
                   "htmlClass" : "col-sm-4"
                },
                {
                   "key" : "tanggung_jawab",
+                  "id" : "tanggung_jawab",
                   "htmlClass" : "col-sm-3"
                },
                {
                   "key" : "nama_pj",
+                  "id" : "nama_pj",
                   "htmlClass" : "col-sm-5"
                }
             ]
@@ -195,63 +195,53 @@
    "column2" : {
       "schema" : {
          "alamat_pj" : {
-            "id" : "alamat_pj",
             "title" : "Alamat Penanggung Jawab",
             "type" : "string"
       },
       "desa_pj": {
-            "id" : "desa_pj",
             "title": "Desa",
             "type": "string",
             "enum" : ["Gadang", "Jumput"]
       },
       "kecamatan_pj": {
-            "id" : "kecamatan_pj",
             "title": "Kecamatan",
             "type": "string",
             "enum" : ["Sukun", "Kedung Kandang"]
       },
       "kota_kabupaten_pj": {
-            "id" : "kota_kabupaten_pj",
             "title": "Kota/Kabupaten",
             "type": "string",
             "enum" : ["Kota Malang", "Kota Kediri"]
       },
       "cara_masuk_rs" : {
-            "id" : "cara_masuk_rs",
             "title" : "Cara Masuk RS",
             "type" : "string"
       },
       "cara_penerimaan" : {
-            "id" : "cara_penerimaan",
             "title" : "Cara Penerimaan",
             "type" : "string"
       },
       "kelas_pelayanan": {
-            "id" : "kelas_pelayanan",
             "title": "Kelas Pelayanan",
             "type": "string",
             "enum" : ["Kelas I", "Kelas II", "Kelas III"]
       },
       "penjamin" : {
-            "id" : "penjamin",
             "title" : "Penjamin",
             "type" : "string"
       },
       "tgl_masuk" : {
-            "id" : "tgl_masuk",
             "title" : "Tanggal Masuk",
             "type" : "string"
       },
       "jam" : {
-            "id" : "jam",
             "title" : "Jam",
             "type" : "string"
       },
-      "input_hidden" : {
-            "id" : "input_hidden",
-            "title" : "Input Hidden",
-            "type" : "string"
+      "status_update" : {
+            "title" : "status_update",
+            "type" : "string",
+            "default" : "0"
       }
    },
    "form" : [
@@ -263,6 +253,7 @@
             "items" : [
                {
                   "key" : "alamat_pj",
+                  "id" : "alamat_pj",
                   "htmlClass" : "col-sm"
                }
             ]
@@ -275,14 +266,17 @@
             "items" : [
                {
                   "key" : "desa_pj",
+                  "id" : "desa_pj",
                   "htmlClass" : "col-sm"
                },
                {
                   "key" : "kecamatan_pj",
+                  "id" : "kecamatan_pj",
                   "htmlClass" : "col-sm"
                },
                {
                   "key" : "kota_kabupaten_pj",
+                  "id" : "kota_kabupaten_pj",
                   "htmlClass" : "col-sm"
                }
             ]
@@ -295,10 +289,12 @@
             "items" : [
                {
                   "key" : "cara_masuk_rs",
+                  "id" : "cara_masuk_rs",
                   "htmlClass" : "col-sm"
                },
                {
                   "key" : "cara_penerimaan",
+                  "id" : "cara_penerimaan",
                   "htmlClass" : "col-sm"
                }
             ]
@@ -311,46 +307,44 @@
             "items" : [
                {
                   "key" : "kelas_pelayanan",
+                  "id" : "kelas_pelayanan",
                   "htmlClass" : "col-sm-3"
                },
                {
                   "key" : "penjamin",
+                  "id" : "penjamin",
                   "htmlClass" : "col-sm-3"
                },
                {
                   "key" : "tgl_masuk",
+                  "id" : "tgl_masuk",
                   "type" : "date",
                   "htmlClass" : "col-sm-4"
                },
                {
                   "key" : "jam",
+                  "id" : "jam",
                   "htmlClass" : "col-sm-2"
                }
             ]
       },
       {
-            "type" : "section",
-            "id" : "section11",
-            "title" : "InputHidden",
-            "items" : [
-               {
-                  "key" : "input_hidden",
-                  "type" : "hidden"
-               }
-            ]
-      },
-      {
-            "type" : "section",
-            "id" : "section12",
-            "title" : "ButtonSumbit",
-            "items" : [
-               {
-                  "id" : "btn_submit",
-                  "type" : "submit",
-                  "title" : "Diagnosa",
-                  "htmlClass" : "form-control"
-               }
-            ]
+         "type" : "section",
+         "id" : "section11",
+         "title" : "ButtonSumbit",
+         "items" : [
+            {
+               "key" : "status_update",
+               "id" : "status_update",
+               "type" : "hidden"
+            },
+            {
+               "id" : "btn_submit",
+               "type" : "submit",
+               "title" : "Diagnosa",
+               "htmlClass" : "form-control"
+            }
+         ]
       }
    ]
    }
