@@ -167,6 +167,11 @@ class ResumeMedisController extends Controller
         return redirect('/pasien');
     }
 
+    public function VRisetJsonForm()
+    {
+        $datas = DataJson::where("status_update", "0")->get();
+        return view('vform-dynamic', compact("datas"));
+    }
     public function RisetJsonForm()
     {
         return view('form-dynamic');
@@ -175,5 +180,26 @@ class ResumeMedisController extends Controller
     public function InsertJsonForm(Request $req)
     {
         DataJson::create($req->all());
+        return redirect("/vrisetjson");
+    }
+    public function EditJsonForm($id)
+    {
+        $datas = DataJson::find($id);
+        return view("edit-form-dynamic", compact("datas"));
+    }
+    public function UpdateJsonForm(Request $req, $id)
+    {
+        $data = DataJson::find($id);
+        $data->status_update = "1";
+        $data->save();
+        DataJson::create($req->all());
+        return redirect("vrisetjson");
+    }
+    public function DeleteJsonData(Request $req)
+    {
+        $data = DataJson::find($req->id);
+        $data->status_update = "2";
+        $data->save();
+        return redirect('/vrisetjson');
     }
 }
