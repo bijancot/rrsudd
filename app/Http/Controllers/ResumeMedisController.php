@@ -61,7 +61,7 @@ class ResumeMedisController extends Controller
 
         $resume->save();
 
-        $logging->toLogging($getIDuser, 'simpan', 'resume-medis');
+        $logging->toLogging($getIDuser, 'created', 'resume-medis');
 
         return redirect('/pasien');
     }
@@ -81,6 +81,22 @@ class ResumeMedisController extends Controller
             //Edit Status
             $resume = ResumeMedis::find($id);
             $resume->status = "1";
+
+            $old_resume = [
+                'diagnosa_masuk'         => $resume->diagnosa_masuk,
+                'anamnesis'              => $resume->anamnesis,
+                'pemeriksaan_fisik'      => $resume->pemeriksaan_fisik,
+                'pemeriksaan_pengunjung' => $resume->pemeriksaan_pengunjung,
+                'obat_selama_rawat'      => $resume->obat_selama_rawat,
+                'diagnosa_akhir'         => $resume->diagnosa_akhir,
+                'tindakan_operasi'       => $resume->tindakan_operasi,
+                'obat_terapi_pulang'     => $resume->obat_terapi_pulang,
+                'pengobatan_lanjutan'    => $resume->pengobatan_lanjutan,
+                'tgl_kontrol'            => $resume->tgl_kontrol,
+                'status'                 => $resume->status,
+                'kondisi_saat_pulang'    => $resume->kondisi_saat_pulang,
+            ];
+
             $resume->save();
 
             //Insert New Data
@@ -111,8 +127,30 @@ class ResumeMedisController extends Controller
             } else {
                 $resume->kondisi_saat_pulang = $req->get('kondisi_saat_pulang');
             }
+
+            $current_resume = [
+                'diagnosa_masuk'         => $resume->diagnosa_masuk,
+                'anamnesis'              => $resume->anamnesis,
+                'pemeriksaan_fisik'      => $resume->pemeriksaan_fisik,
+                'pemeriksaan_pengunjung' => $resume->pemeriksaan_pengunjung,
+                'obat_selama_rawat'      => $resume->obat_selama_rawat,
+                'diagnosa_akhir'         => $resume->diagnosa_akhir,
+                'tindakan_operasi'       => $resume->tindakan_operasi,
+                'obat_terapi_pulang'     => $resume->obat_terapi_pulang,
+                'pengobatan_lanjutan'    => $resume->pengobatan_lanjutan,
+                'tgl_kontrol'            => $resume->tgl_kontrol,
+                'status'                 => $resume->status,
+                'kondisi_saat_pulang'    => $resume->kondisi_saat_pulang,
+            ];
+
+            $ket_logging = [
+                'old'        => $old_resume,
+                'current'    => $current_resume
+            ];
+
             $resume->save();
-            $logging->toLogging($getIDuser, 'update', "resume-medis '$id'");
+            $logging->toLogging($getIDuser, 'updated', $ket_logging);
+
             return redirect('/pasien');
         } else {
             return redirect('/pasien');
@@ -125,15 +163,17 @@ class ResumeMedisController extends Controller
         $resume = ResumeMedis::find($req->id);
         $resume->status = "2";
         $resume->save();
-        $logging->toLogging($getIDuser, 'delete', "resume-medis '$req->id'");
+        $logging->toLogging($getIDuser, 'deleted', "resume-medis '$req->id'");
         return redirect('/pasien');
     }
 
-    public function RisetJsonForm(){
+    public function RisetJsonForm()
+    {
         return view('form-dynamic');
     }
 
-    public function InsertJsonForm(Request $req){
+    public function InsertJsonForm(Request $req)
+    {
         DataJson::create($req->all());
     }
 }

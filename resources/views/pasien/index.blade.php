@@ -26,6 +26,7 @@
                             <th>Anamnesis</th>
                             <th>Pemeriksaan Fisik</th>
                             <th>Pemeriksaan Pengunjung</th>
+                            <th>Action</th>
                             <th>Obat Selama Rawat</th>
                             <th>Diagnosa Akhir</th>
                             <th>Tindakan Operasi</th>
@@ -33,7 +34,6 @@
                             <th>Pengobtan Lanjutan</th>
                             <th>Tanggal Kontrol</th>
                             <th>Kondisi Saat Pulang</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,6 +43,14 @@
                                 <td>{{$resume->anamnesis}}</td>
                                 <td>{{$resume->pemeriksaan_fisik}}</td>
                                 <td>{{$resume->pemeriksaan_pengunjung}}</td>
+                                <td>
+                                    <a href="{{action('ResumeMedisController@FormEdit', $resume->id)}}"  class="btn btn-warning">Edit</a>
+                                    <button onclick="hapus()" type="button" class="btn btn-danger">Hapus</button>
+                                    <form id="form-delete" method="post" action="{{action('ResumeMedisController@Delete')}}">
+                                        @csrf
+                                        <input type="hidden" value="{{$resume->id}}" name="id">
+                                    </form>
+                                </td>
                                 <td>{{$resume->obat_selama_rawat}}</td>
                                 <td>{{$resume->diagnosa_akhir}}</td>
                                 <td>{{$resume->tindakan_operasi}}</td>
@@ -65,14 +73,6 @@
                                     @else
                                         {{$resume->kondisi_saat_pulang}}
                                     @endif
-                                </td>
-                                <td>
-                                    <a href="{{action('ResumeMedisController@FormEdit', $resume->id)}}"  class="btn btn-warning">Edit</a>
-                                    <button onclick="hapus()" type="button" class="btn btn-danger">Hapus</button>
-                                    <form id="form-delete" method="post" action="{{action('ResumeMedisController@Delete')}}">
-                                        @csrf
-                                        <input type="hidden" value="{{$resume->id}}" name="id">
-                                    </form>
                                 </td>
                             </tr>
                             @endforeach  
