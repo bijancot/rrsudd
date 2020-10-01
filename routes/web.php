@@ -21,8 +21,8 @@ Route::group(['middleware' => ['auth', 'checkRole:2,3']], function () {
     Route::get('/resume-medis/insert', 'ResumeMedisController@FormInsert');
     Route::get('/resume-medis/edit/{id}', 'ResumeMedisController@FormEdit');
     Route::get('/risetjson', 'ResumeMedisController@RisetJsonForm');
-    Route::get('/vrisetjson', 'ResumeMedisController@VRisetJsonForm');
     Route::get('/risetjson/edit/{id}', 'ResumeMedisController@EditJsonForm');
+    Route::get('/vrisetjson', 'ResumeMedisController@VRisetJsonForm');
 
     Route::post('/resume-medis/insert', 'ResumeMedisController@Insert');
     Route::post('/resume-medis/edit/{id}', 'ResumeMedisController@Update');
