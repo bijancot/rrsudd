@@ -91,8 +91,10 @@ class ResumeMedisController extends Controller
                 'diagnosa_akhir'         => $resume->diagnosa_akhir,
                 'tindakan_operasi'       => $resume->tindakan_operasi,
                 'obat_terapi_pulang'     => $resume->obat_terapi_pulang,
+                // 'pengobatan_lanjutan'    => $resume->pengobatan_lanjutan,
                 'tgl_kontrol'            => $resume->tgl_kontrol,
                 'status'                 => $resume->status,
+                // 'kondisi_saat_pulang'    => $resume->kondisi_saat_pulang,
             ];
 
             $old_pengobatan_lanjutan = $resume->pengobatan_lanjutan;
@@ -106,7 +108,7 @@ class ResumeMedisController extends Controller
                 $old_kondisi_saat_pulang = $resume->kondisi_saat_pulang;
             }
 
-            $resume->save();
+            // $resume->save();
 
             //Insert New Data
             $resume = new ResumeMedis();
@@ -146,8 +148,10 @@ class ResumeMedisController extends Controller
                 'diagnosa_akhir'         => $resume->diagnosa_akhir,
                 'tindakan_operasi'       => $resume->tindakan_operasi,
                 'obat_terapi_pulang'     => $resume->obat_terapi_pulang,
+                // 'pengobatan_lanjutan'    => $resume->pengobatan_lanjutan,
                 'tgl_kontrol'            => $resume->tgl_kontrol,
                 'status'                 => $resume->status,
+                // 'kondisi_saat_pulang'    => $resume->kondisi_saat_pulang,
             ];
 
             $current_pengobatan_lanjutan = $resume->pengobatan_lanjutan;
@@ -160,13 +164,25 @@ class ResumeMedisController extends Controller
             } else {
                 $current_kondisi_saat_pulang = $resume->kondisi_saat_pulang;
             }
+            // dump($current_kondisi_saat_pulang);
 
-            $resume->save();
+            // $resume->save();
             $resume_old = array_diff_assoc($old_resume, $current_resume);
             $resume_cur = array_diff_assoc($current_resume, $old_resume);
+            // dump($resume_old);
+            // dump($resume_cur);
 
             $pengobatan_lanjutan_old = array_diff_assoc($old_pengobatan_lanjutan, $current_pengobatan_lanjutan);
             $pengobatan_lanjutan_cur = array_diff_assoc($current_pengobatan_lanjutan, $old_pengobatan_lanjutan);
+            // dump($pengobatan_lanjutan_old);
+            // dump($pengobatan_lanjutan_cur);
+
+            // dump($old_kondisi_saat_pulang);
+            // dump($current_kondisi_saat_pulang);
+
+            echo "<br>";
+            echo "Saat ini :";
+            echo "<br>";
 
             if ($pengobatan_lanjutan_old || $pengobatan_lanjutan_cur != NULL) {
                 $old        = [
@@ -180,6 +196,11 @@ class ResumeMedisController extends Controller
                     'cur_pengobatan_lanjutan'  => $pengobatan_lanjutan_cur,
                     'cur_kondisi_saat_pulang'  => $current_kondisi_saat_pulang,
                 ];
+
+                $ket_logging = [
+                    'old'        => $old,
+                    'current'    => $current
+                ];
             } else {
                 $old        = [
                     'old_resume'              => $resume_old,
@@ -190,16 +211,17 @@ class ResumeMedisController extends Controller
                     'cur_resume'               => $resume_cur,
                     'cur_kondisi_saat_pulang'  => $current_kondisi_saat_pulang,
                 ];
+                $ket_logging = [
+                    'old'        => $old,
+                    'current'    => $current
+                ];
             }
 
-            $ket_logging = [
-                'old'        => $old,
-                'current'    => $current
-            ];
+            dump($ket_logging);
 
-            $logging->toLogging($getIDuser, 'updated', $ket_logging);
+            // $logging->toLogging($getIDuser, 'updated', $ket_logging);
 
-            return redirect('/pasien');
+            // return redirect('/pasien');
         } else {
             return redirect('/pasien');
         }
