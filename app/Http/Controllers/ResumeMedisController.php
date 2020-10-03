@@ -91,11 +91,20 @@ class ResumeMedisController extends Controller
                 'diagnosa_akhir'         => $resume->diagnosa_akhir,
                 'tindakan_operasi'       => $resume->tindakan_operasi,
                 'obat_terapi_pulang'     => $resume->obat_terapi_pulang,
-                'pengobatan_lanjutan'    => $resume->pengobatan_lanjutan,
                 'tgl_kontrol'            => $resume->tgl_kontrol,
                 'status'                 => $resume->status,
-                'kondisi_saat_pulang'    => $resume->kondisi_saat_pulang,
             ];
+
+            $old_pengobatan_lanjutan = $resume->pengobatan_lanjutan;
+
+            if ($resume->kondisi_saat_pulang == "dirujuk") {
+                $old_kondisi_saat_pulang = [
+                    'ket_dirujuk'   => $resume->ket_dirujuk,
+                    'alasan'        => $resume->alasan
+                ];
+            } else {
+                $old_kondisi_saat_pulang = $resume->kondisi_saat_pulang;
+            }
 
             $resume->save();
 
@@ -115,14 +124,14 @@ class ResumeMedisController extends Controller
             $resume->status                 = "0";
 
             $resume->pengobatan_lanjutan = [
-                'poliklinik' => $req->get('poliklinik'),
-                'pengobatan_lanjutan' => $req->get('pengobatan_lanjutan')
+                'poliklinik'                => $req->get('poliklinik'),
+                'pengobatan_lanjutan'       => $req->get('pengobatan_lanjutan')
             ];
 
             if ($req->get('kondisi_saat_pulang') == "dirujuk") {
                 $resume->kondisi_saat_pulang = [
-                    'ket_dirujuk' => $req->get('ket_dirujuk'),
-                    'alasan' => $req->get('alasan')
+                    'ket_dirujuk'           => $req->get('ket_dirujuk'),
+                    'alasan'                => $req->get('alasan')
                 ];
             } else {
                 $resume->kondisi_saat_pulang = $req->get('kondisi_saat_pulang');
@@ -137,18 +146,57 @@ class ResumeMedisController extends Controller
                 'diagnosa_akhir'         => $resume->diagnosa_akhir,
                 'tindakan_operasi'       => $resume->tindakan_operasi,
                 'obat_terapi_pulang'     => $resume->obat_terapi_pulang,
-                'pengobatan_lanjutan'    => $resume->pengobatan_lanjutan,
                 'tgl_kontrol'            => $resume->tgl_kontrol,
                 'status'                 => $resume->status,
-                'kondisi_saat_pulang'    => $resume->kondisi_saat_pulang,
             ];
 
-            $ket_logging = [
-                'old'        => $old_resume,
-                'current'    => $current_resume
-            ];
+            $current_pengobatan_lanjutan = $resume->pengobatan_lanjutan;
+
+            if ($resume->kondisi_saat_pulang == "dirujuk") {
+                $current_kondisi_saat_pulang = [
+                    'ket_dirujuk'   => $resume->ket_dirujuk,
+                    'alasan'        => $resume->alasan
+                ];
+            } else {
+                $current_kondisi_saat_pulang = $resume->kondisi_saat_pulang;
+            }
 
             $resume->save();
+            $resume_old = array_diff_assoc($old_resume, $current_resume);
+            $resume_cur = array_diff_assoc($current_resume, $old_resume);
+
+            $pengobatan_lanjutan_old = array_diff_assoc($old_pengobatan_lanjutan, $current_pengobatan_lanjutan);
+            $pengobatan_lanjutan_cur = array_diff_assoc($current_pengobatan_lanjutan, $old_pengobatan_lanjutan);
+
+            if ($pengobatan_lanjutan_old || $pengobatan_lanjutan_cur != NULL) {
+                $old        = [
+                    'old_resume'              => $resume_old,
+                    'old_pengobatan_lanjutan' => $pengobatan_lanjutan_old,
+                    'old_kondisi_saat_pulang' => $old_kondisi_saat_pulang,
+                ];
+
+                $current    = [
+                    'cur_resume'               => $resume_cur,
+                    'cur_pengobatan_lanjutan'  => $pengobatan_lanjutan_cur,
+                    'cur_kondisi_saat_pulang'  => $current_kondisi_saat_pulang,
+                ];
+            } else {
+                $old        = [
+                    'old_resume'              => $resume_old,
+                    'old_kondisi_saat_pulang' => $old_kondisi_saat_pulang,
+                ];
+
+                $current    = [
+                    'cur_resume'               => $resume_cur,
+                    'cur_kondisi_saat_pulang'  => $current_kondisi_saat_pulang,
+                ];
+            }
+
+            $ket_logging = [
+                'old'        => $old,
+                'current'    => $current
+            ];
+
             $logging->toLogging($getIDuser, 'updated', $ket_logging);
 
             return redirect('/pasien');
